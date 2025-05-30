@@ -37,8 +37,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-InPage, dll tetap sama
-
 function capturePhoto() {
   const fullWidth = video.videoWidth;
   const fullHeight = video.videoHeight;
