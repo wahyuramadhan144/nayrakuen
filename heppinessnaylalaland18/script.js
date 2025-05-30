@@ -7,17 +7,37 @@ const context = canvas.getContext('2d');
 const backButton = document.getElementById('backButton');
 const stickyLogo = document.querySelector('.sticky-logo');
 
+const popup = document.getElementById("popup");
+const lanjutButton = document.getElementById("lanjut-btn");
+const popupError = document.getElementById("popupError");
+
 const photoList = [];
 let finalCanvas;
 
-navigator.mediaDevices.getUserMedia({
-  video: { width: { ideal: 1280 }, height: { ideal: 720 } }
-}).then(stream => {
-  video.srcObject = stream;
-}).catch(error => {
-  console.error("Tidak dapat mengakses kamera:", error);
-  alert("Tidak dapat mengakses kamera.");
+document.addEventListener("DOMContentLoaded", function () {
+  if (lanjutButton && popup) {
+    lanjutButton.addEventListener("click", function () {
+      popupError.textContent = '';
+      popupError.style.display = 'none';
+
+      navigator.mediaDevices.getUserMedia({
+        video: { width: { ideal: 1280 }, height: { ideal: 720 } }
+      }).then(stream => {
+        video.srcObject = stream;
+        video.style.display = 'block';
+
+        popup.classList.add("hidden");
+
+      }).catch(error => {
+        console.error("Tidak dapat mengakses kamera:", error);
+        popupError.textContent = "Gagal mengakses kamera. Pastikan izin diberikan.";
+        popupError.style.display = 'block';
+      });
+    });
+  }
 });
+
+InPage, dll tetap sama
 
 function capturePhoto() {
   const fullWidth = video.videoWidth;
