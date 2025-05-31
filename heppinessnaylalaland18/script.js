@@ -144,7 +144,7 @@ function showPreviewInPage() {
   const timestamp = now.toISOString().replace(/T/, '_').replace(/:/g, '-').split('.')[0];
   const filename = `Sweet Happiness Pizzaland_${timestamp}.png`;
 
-  previewImageContainer.innerHTML = `<img src="${imageData}" alt="Hasil Foto" style="max-width: 100%; border-radius: 0px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);"/>`;
+  previewImageContainer.innerHTML = `<img src="${imageData}" alt="Hasil Foto" class="preview-image" style="max-width: 100%; border-radius: 0px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);"/>`;
   downloadButton.href = imageData;
   downloadButton.download = filename;
 
