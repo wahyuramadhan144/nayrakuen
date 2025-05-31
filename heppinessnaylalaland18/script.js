@@ -82,8 +82,8 @@ function capturePhoto() {
 
 function combinePhotos() {
   Promise.all([
-    loadImage('assets/Frame 17.png'),
-    loadImage('assets/Frame 18.png')
+    loadImage('assets/Frame17.png'),
+    loadImage('assets/Frame18.png')
   ]).then(([frame1, frame2]) => {
     const singleWidth = 1100;
     const singleHeight = 2260;
