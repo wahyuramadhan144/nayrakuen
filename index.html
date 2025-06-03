@@ -101,6 +101,25 @@
   </div>
 </section>
 
+  <section id="statistik" class="py-4" style="background-color: maroon;">
+  <div class="container">
+    <div class="stat-strip">
+      <div class="stat-item">
+        <h3 class="count-up" data-target="12">0</h3>
+        <p>Show</p>
+      </div>
+      <div class="stat-item">
+        <h3 class="count-up" data-target="3">0</h3>
+        <p>Setlist</p>
+      </div>
+      <div class="stat-item">
+        <h3 class="count-up" data-target="9">0</h3>
+        <p>Unit Song</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="produk" class="">
   <div class="container">
     <div class="content-wrapper">
@@ -175,6 +194,43 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
+  const counters = document.querySelectorAll('.count-up');
+
+  const options = {
+    root: null,
+    threshold: 0.5,
+  };
+
+  const startCounting = (entry) => {
+    const el = entry.target;
+    const target = +el.getAttribute('data-target');
+    let current = 0;
+    const increment = target / 100;
+
+    const updateCount = () => {
+      current += increment;
+      if(current < target) {
+        el.textContent = Math.floor(current);
+        requestAnimationFrame(updateCount);
+      } else {
+        el.textContent = target;
+      }
+    };
+
+    updateCount();
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        startCounting(entry);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, options);
+
+  counters.forEach(counter => observer.observe(counter));
+  
   let currentLang = "id";
 
   const translations = {
