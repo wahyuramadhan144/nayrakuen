@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Page Not Found</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #0f0f2d, #0a0a1a);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 8rem;
+      position: relative;
+      color: white;
+      animation: colorShift 5s infinite alternate;
+      text-shadow: 4px 4px 0px #00bfff, -4px -4px 0px #ff00ff;
+    }
+
+    @keyframes colorShift {
+      0% {
+        text-shadow: 4px 4px 0px #00bfff, -4px -4px 0px #ff00ff;
+      }
+      50% {
+        text-shadow: 4px 4px 0px #ffcc00, -4px -4px 0px #00ff99;
+      }
+      100% {
+        text-shadow: 4px 4px 0px #ff4d4d, -4px -4px 0px #33ccff;
+      }
+    }
+
+    h2 {
+      margin-top: 20px;
+      font-size: 2rem;
+    }
+
+    p {
+      margin-top: 10px;
+      max-width: 400px;
+      color: #ccc;
+      font-size: 1.1rem;
+    }
+
+    .btn {
+      margin-top: 30px;
+      padding: 12px 24px;
+      background: #673ab7;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #512da8;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>404</h1>
+  <h2>Halaman Tidak Ditemukan</h2>
+  <p>Oops! Halaman yang kamu cari telah hilang ke dalam kekosongan digital.</p>
+
+  <a href="/" class="btn">Kembali ke Beranda</a>
+
+</body>
+</html>
